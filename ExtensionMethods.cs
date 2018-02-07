@@ -14,6 +14,14 @@ namespace Toolbox
                 children.Add(rt.GetChild(i) as RectTransform);
             return children;
         }
+        
+        public static List<Transform> Children(this Transform rt)
+        {
+            var children = new List<Transform>();
+            for (var i = 0; i < rt.childCount; i++)
+                children.Add(rt.GetChild(i));
+            return children;
+        }
 
         public static float IntersectionArea(this RectTransform rt1, RectTransform rt2)
         {
@@ -50,6 +58,12 @@ namespace Toolbox
         public static T GetRandomItem<T>(this Array array)
         {
             return (T) array.GetValue(Random.Range(0, array.Length));
+        }
+        
+        public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            foreach (var element in source)
+                action(element);
         }
     }
 }
