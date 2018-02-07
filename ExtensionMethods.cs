@@ -42,12 +42,12 @@ namespace Toolbox
             return 0;
         }
 
-        public static T GetRandomValue<T>(this List<T> list)
+        public static T GetRandomItem<T>(this List<T> list)
         {
             return list[Random.Range(0, list.Count)];
         }
 
-        public static T GetRandomValue<T>(this Array array)
+        public static T GetRandomItem<T>(this Array array)
         {
             return (T) array.GetValue(Random.Range(0, array.Length));
         }
